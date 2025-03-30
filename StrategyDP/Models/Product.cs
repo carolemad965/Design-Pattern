@@ -6,9 +6,16 @@ namespace StrategyDP.Models
     {
         public string? Name { get; set; }
         public double Price { get; set; }
-        public double CalculatePrice(PriceStrategy priceStrategy)
+        public PriceStrategy PriceStrategy { get; set; }
+        public Product(string name,double price,PriceStrategy priceStrategy)
         {
-           return priceStrategy.calculatePrice(Price);
+            PriceStrategy = priceStrategy;
+            Name = name;
+            Price = price;
+        }
+        public double CalculatePrice()
+        {
+           return PriceStrategy.calculatePrice(Price);
         }
     }
 }

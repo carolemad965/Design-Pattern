@@ -1,10 +1,17 @@
-﻿namespace StrategyDP.Models
+﻿using StrategyDP.Interfaces;
+
+namespace StrategyDP.Models
 {
     public class Checkout
     {
-        public void processPayment(decimal price,PaymentMethod paymentMethod)
+        PaymentStrategy paymentStrategy {  get; set; }
+        public Checkout(PaymentStrategy _paymentStrategy)
         {
-
+            paymentStrategy = _paymentStrategy;
+        }
+        public void processPayment(double price)
+        {
+            paymentStrategy.ProcessPayment(price);
         }
     }
 }
