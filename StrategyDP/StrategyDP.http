@@ -1,0 +1,6 @@
+@StrategyDP_HostAddress = http://localhost:5299
+
+GET {{StrategyDP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
